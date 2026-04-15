@@ -11,7 +11,6 @@
 ## 项目结构
 
 ```
-practice_claude/
 ├── harness-template/          # 可直接迁移的生产级 Harness 模板
 │   ├── CLAUDE.md              # Claude Code 操作手册（固定工作循环 + 规则 + 完成门槛）
 │   ├── AGENTS.md              # Codex / Cursor 等通用 Agent 操作手册
