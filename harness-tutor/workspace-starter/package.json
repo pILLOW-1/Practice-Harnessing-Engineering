@@ -1,0 +1,21 @@
+{
+  "name": "harness-workspace-starter",
+  "version": "0.1.0",
+  "description": "一个用于学习 Harness Engineering 的练习项目",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src/ --ext .ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,77 @@
+{
+  "features": [
+    {
+      "id": "feat-001",
+      "name": "文档导入",
+      "description": "允许用户导入 PDF 和 TXT 格式的本地文档",
+      "area": "import",
+      "priority": 1,
+      "dependencies": [],
+      "status": "passing",
+      "user_visible_behavior": "用户可以点击导入按钮选择文件，导入后文档出现在列表中",
+      "verification": [
+        "运行 npm test -- --grep 'document import'",
+        "手动测试：导入一个 TXT 文件，确认出现在列表中"
+      ],
+      "evidence": "tests pass on 2026-04-15, 导入 test.txt 成功",
+      "notes": ""
+    },
+    {
+      "id": "feat-002",
+      "name": "文档列表展示",
+      "description": "在侧边栏展示已导入文档列表，支持搜索和筛选",
+      "area": "ui",
+      "priority": 2,
+      "dependencies": ["feat-001"],
+      "status": "in_progress",
+      "user_visible_behavior": "侧边栏显示文档名称列表，顶部有搜索框可按名称过滤",
+      "verification": [
+        "运行 npm test -- --grep 'document list'",
+        "手动测试：确认列表渲染、搜索过滤功能正常"
+      ],
+      "evidence": "",
+      "notes": "搜索框组件已实现，筛选逻辑待完善"
+    },
+    {
+      "id": "feat-003",
+      "name": "AI 问答",
+      "description": "用户可以对导入的文档内容发起 AI 问答，返回带引用的回答",
+      "area": "qa",
+      "priority": 3,
+      "dependencies": ["feat-001"],
+      "status": "not_started",
+      "user_visible_behavior": "用户在右侧面板输入问题，AI 返回回答并标注引用来源文档",
+      "verification": [
+        "运行 npm test -- --grep 'qa service'",
+        "手动测试：提问并验证回答是否包含正确引用"
+      ],
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "id": "feat-004",
+      "name": "索引与持久化",
+      "description": "对导入文档建立索引并持久化到本地，重启后可恢复",
+      "area": "indexing",
+      "priority": 4,
+      "dependencies": ["feat-001", "feat-002"],
+      "status": "not_started",
+      "user_visible_behavior": "关闭应用后重新打开，之前导入的文档和索引仍然存在",
+      "verification": [
+        "运行 npm test -- --grep 'persistence'",
+        "手动测试：导入文档、关闭应用、重新打开，确认数据保留"
+      ],
+      "evidence": "",
+      "notes": ""
+    }
+  ],
+  "_notes": {
+    "status_values": {
+      "not_started": "尚未开始",
+      "in_progress": "当前正在做（同一时间只能有一个）",
+      "blocked": "有记录的阻塞问题",
+      "passing": "验证通过，证据已记录"
+    },
+    "rule": "任何时候只能有一个 feature 处于 in_progress 状态"
+  }
+}
